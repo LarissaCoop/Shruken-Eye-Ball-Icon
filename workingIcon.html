@@ -1,0 +1,58 @@
+<html>
+    <style>
+      .eyes {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+      }
+      body{
+        background-color: lightblue;
+      }
+      .eye {
+        width: 36px;
+        height: 18px;
+        background: white;
+        display: inline-block;
+        margin: 0px;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: #14495e;
+        border-width: 4px;
+        position: relative;
+        overflow: hidden;
+      }
+      .ball {
+        width: 12px;
+        height: 12px;
+        background: #000;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+      }
+    </style>
+
+    <body>
+      <div class="eyes">
+        <div class="eye">
+          <div class="ball"></div>
+        </div>
+      </div>
+    </body>
+    <script>
+      var balls = document.getElementsByClassName("ball");
+      document.onmousemove = () => {
+        var x = (event.clientX * 100) / window.innerWidth + "%";
+        var y = (event.clientY * 100) / window.innerHeight + "%";
+
+        for (let i = 0; i < 2; i++) {
+          balls[i].style.left = x;
+          balls[i].style.top = y;
+          balls[i].transfoorm = "translate(-" + x + ",-" + y + ")";
+        }
+      };
+    </script>
+  </div>
+</html>
